@@ -35,7 +35,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" 
+        <button (click)="addNegocio(nombre_persona.value, nombre_negocio.value, numero_gst_negocio.value)" type="submit" 
         [disabled]="angForm.pristine || angForm.invalid"
         class="btn btn-primary">Add Negocio</button>
       </div>
