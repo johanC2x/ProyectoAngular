@@ -25,7 +25,7 @@ export class GstAddComponent implements OnInit {
   }
 
   addNegocio(nombre_persona,nombre_negocio,numero_gst_negocio){
-    this.ns.addNegocio(nombre_persona,nombre_negocio,numero_gst_negocio);
+   this.ns.addNegocio(nombre_persona,nombre_negocio,numero_gst_negocio);
   }
 
 
