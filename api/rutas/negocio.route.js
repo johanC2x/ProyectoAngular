@@ -26,13 +26,21 @@ negocioRoutes.route('/').get(function (req,res){
     });
 });
 
+negocioRoutes.route('/edit/:id').get(function (req,res){
+    let id=req.params.id;
+    Negocio.findById(id, function(err, negocio){
+        res.json(negocio);
+    });
+});
+
 negocioRoutes.route('/update/:id').post(function (req,res){
-    Negocio.findById(req.params.id, function(err,next, negocio){
+
+    Negocio.findById(req.params.id, function(err, negocio){
         if(!negocio){
             return next(new Error('No se pudo cargar el documento'));
         }else{
             negocio.nombre_persona=req.body.nombre_persona;
-            megocio.nombre_negocio=req.body.nombre_negocio;
+            negocio.nombre_negocio=req.body.nombre_negocio;
             negocio.numero_gst_negocio=req.body.numero_gst_negocio;
 
             negocio.save().then(negocio=>{
