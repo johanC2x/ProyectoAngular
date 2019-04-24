@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Nombre Persona</label>
+        <input type="text" class="form-control" formControlName="nombre_persona" #nombre_persona />
+      </div>
+      <div *ngIf="angForm.controls['nombre_persona'].invalid && (angForm.controls['nombre_persona'].dirty
+      || angForm.controls['nombre_persona'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['nombre_persona'].errors.required">
+          Nombre de persona es requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Apellido de Persona</label>
+        <input type="text" class="form-control" formControlName="apellido_persona" #apellido_persona />
+      </div>
+      <div *ngIf="angForm.controls['apellido_persona'].invalid && (angForm.controls['apellido_persona'].dirty
+      || angForm.controls['apellido_persona'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['apellido_persona'].errors.required">
+          Apellido de persona es requerido
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Edad de Persona</label>
+        <input type="text" class="form-control" formControlName="edad_persona" #edad_persona />
+      </div>
+      <div *ngIf="angForm.controls['edad_persona'].invalid && (angForm.controls['edad_persona'].dirty
+      || angForm.controls['edad_persona'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['edad_persona'].errors.required">
+          Apellido de persona es requerido
+        </div>
+      </div>
+<!--
+      <div class="form-group">
+        <input type="hidden" class="form-control" formControlName="nombre_negocio" #nombre_negocio />
+      </div>
+      <div *ngIf="angForm.controls['nombre_negocio'].invalid && (angForm.controls['nombre_negocio'].dirty
+      || angForm.controls['nombre_negocio'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['nombre_negocio'].errors.required">
+          Nombre de negocio es requerido
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="hidden" class="form-control" formControlName="numero_gst_negocio" #numero_gst_negocio />
+      </div>
+      <div *ngIf="angForm.controls['numero_gst_negocio'].invalid && (angForm.controls['numero_gst_negocio'].dirty
+      || angForm.controls['numero_gst_negocio'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['numero_gst_negocio'].errors.required">
+          Numero GST es requerido
+        </div>
+      </div>
+-->
+    <div class="form-group">
+        <button (click)="addNegocio(nombre_persona.value, apellido_persona.value, edad_persona.value)" 
+        [disabled]="angForm.pristine || angForm.invalid"
+        class="btn btn-primary">Crear Persona</button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
